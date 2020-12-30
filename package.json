@@ -1,0 +1,12 @@
+{
+  "name": "tidal-spotify-sync",
+  "version": "1.0.0",
+  "description": "Transports your Spotify Playlists to your Tidal Account",
+  "main": "index.js",
+  "repository": "https://github.com/max-huster/tidal-spotify-sync",
+  "author": "Max Huster <maxekinge@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "tidalapi-ts": "^2.0.0"
+  }
+}
