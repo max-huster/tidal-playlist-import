@@ -1,5 +1,5 @@
 {
-  "name": "tidal-spotify-sync",
+  "name": "tidal-playlist-import",
   "version": "1.0.1",
   "description": "Transports your Spotify Playlists and more to your Tidal Account",
   "main": "src/lib.js",
