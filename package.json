@@ -1,12 +1,40 @@
 {
   "name": "tidal-spotify-sync",
   "version": "1.0.0",
-  "description": "Transports your Spotify Playlists to your Tidal Account",
-  "main": "index.js",
+  "description": "Transports your Spotify Playlists and more to your Tidal Account",
+  "main": "src/lib.js",
   "repository": "https://github.com/max-huster/tidal-spotify-sync",
   "author": "Max Huster <maxekinge@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "yarn run mocha -r ts-node/register src/**/*.test.ts",
+    "build": "yarn run tsc",
+    "lint": "yarn run eslint src/"
+  },
+  "bin": {
+    "tidal-playlist-import": "./src/bin/tidal-playlist-import.js"
+  },
   "dependencies": {
-    "tidalapi-ts": "^2.0.0"
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1",
+    "inquirer": "^7.3.3",
+    "keytar": "^7.3.0",
+    "ora": "^5.2.0",
+    "tidalapi-ts": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/inquirer": "^7.3.1",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "^14.14.16",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "chai": "^4.2.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
   }
 }
