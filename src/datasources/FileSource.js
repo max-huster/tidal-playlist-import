@@ -48,6 +48,9 @@ class FileSource {
         }
         return songs;
     }
+    test() {
+        return Promise.resolve(undefined);
+    }
 }
 exports.FileSource = FileSource;
 //# sourceMappingURL=FileSource.js.map
