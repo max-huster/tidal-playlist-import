@@ -37,4 +37,8 @@ export class FileSource implements IDataSource {
         return songs;
     }
 
+    test(): Promise<void> {
+        return Promise.resolve(undefined);
+    }
+
 }

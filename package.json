@@ -1,6 +1,6 @@
 {
   "name": "tidal-playlist-import",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Transports your Spotify Playlists and more to your Tidal Account",
   "main": "src/lib.js",
   "repository": "https://github.com/max-huster/tidal-playlist-import",
@@ -12,21 +12,25 @@
     "lint": "yarn run eslint src/"
   },
   "bin": {
-    "tidal-playlist-import": "./src/bin/tidal-playlist-import.js"
+    "tidal-playlist-import": "node ./src/bin/tidal-playlist-import.js"
   },
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^6.2.1",
     "inquirer": "^7.3.3",
     "keytar": "^7.3.0",
+    "lodash": "^4.17.20",
+    "node-fetch": "^2.6.1",
     "ora": "^5.2.0",
     "tidalapi-ts": "^2.0.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/inquirer": "^7.3.1",
+    "@types/lodash": "^4.14.166",
     "@types/mocha": "^8.2.0",
     "@types/node": "^14.14.16",
+    "@types/node-fetch": "^2.5.7",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
     "chai": "^4.2.0",
