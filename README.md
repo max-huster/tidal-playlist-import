@@ -56,8 +56,10 @@ Options:
   -h, --help                            display help for command
 
 Commands:
+  set-spotify-oauth-token <token>       Sets the OAuth Token required for Import from Spotify. Obtain it here:
+                                        https://developer.spotify.com/console/get-playlist/
   accounts <action> [email] [password]  Manage your TIDAL Logins. Actions: set, remove, list
-  import <service> <url>                Import a playlist to your TIDAL account. Valid services are: file
+  import <service> <url>                Import a playlist to your TIDAL account. Valid services are: file, spotify
   help [command]                        display help for command
 ```
 ### Commandline Options Explained
