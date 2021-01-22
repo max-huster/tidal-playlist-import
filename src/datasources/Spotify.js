@@ -27,7 +27,11 @@ class Spotify {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             const res = yield fetch(url, { headers });
-            return yield res.json();
+            const jsonResponse = yield res.json();
+            if (jsonResponse.error) {
+                throw new Error(jsonResponse.error.message);
+            }
+            return jsonResponse;
         });
     }
     fetch(url) {

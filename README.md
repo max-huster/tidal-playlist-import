@@ -6,15 +6,15 @@
 [![NPM](https://img.shields.io/npm/l/tidal-playlist-import.svg)](https://github.com/max-huster/tidal-playlist-import/blob/master/LICENSE)
 [![David](https://img.shields.io/david/max-huster/tidal-playlist-import.svg)](https://david-dm.org/max-huster/tidal-playlist-import)
 [![devDependencies Status](https://status.david-dm.org/gh/max-huster/tidal-playlist-import.svg?type=dev)](https://david-dm.org/max-huster/tidal-playlist-import?type=dev)
-
+[![Code Coverage](https://img.shields.io/codecov/c/github/max-huster/TidalAPI)](https://app.codecov.io/gh/max-huster/TidalAPI)
 ## Installation
 if you are using npm:
 ```
-npm install tidal-playlist-import
+npm install -g tidal-playlist-import
 ```
 or if you are using yarn instead:
 ```
-yarn add tidal-playlist-import
+yarn global add tidal-playlist-import
 ```
 
 ## Getting started with the Commandline
