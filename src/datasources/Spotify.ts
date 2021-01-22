@@ -21,7 +21,11 @@ export class Spotify implements IDataSource {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const res = await fetch(url, {headers});
-        return await res.json();
+        const jsonResponse = await res.json();
+        if(jsonResponse.error){
+            throw new Error(jsonResponse.error.message);
+        }
+        return jsonResponse;
     }
 
     async fetch(url: string): Promise<Playlist> {
