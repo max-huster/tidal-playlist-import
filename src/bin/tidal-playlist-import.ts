@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {TidalImporter} from "../TidalImporter";
 import * as program from "commander";
 import {AccountStorage} from "./helper/AccountStorage";
