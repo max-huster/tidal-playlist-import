@@ -37,16 +37,16 @@ class Spotify {
     fetch(url) {
         return __awaiter(this, void 0, void 0, function* () {
             const matches = /^https:\/\/open\.spotify\.com\/playlist\/([a-zA-Z0-9]{22})/g.exec(url);
-            const playlistId = matches[1];
-            if (!playlistId) {
+            if (!matches || !matches[1]) {
                 throw new Error("Invalid URL! Only Playlists are supported by now!");
             }
+            const playlistId = matches[1];
             const tracks = yield this.GetTracks(playlistId);
             const info = yield this.GetPlaylistInfo(playlistId);
             const playlist = new Playlist_1.Playlist();
             playlist.Title = info.title;
             playlist.Description = info.description;
-            playlist.Songs = tracks.map(x => new Song_1.Song(x.track.name, x.track.artists.map(artist => artist.name).join(", "), x.track.id));
+            playlist.Songs = tracks.filter(x => x.track).map(x => new Song_1.Song(x.track.name, x.track.artists.map(artist => artist === null || artist === void 0 ? void 0 : artist.name).join(", "), x.track.id));
             return playlist;
         });
     }

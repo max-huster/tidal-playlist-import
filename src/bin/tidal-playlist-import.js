@@ -118,7 +118,7 @@ let api;
                 }
             }
             else if (action === "list") {
-                const accounts = (yield accountStorage.list()).map(x => x.account).filter(x => x !== "default");
+                const accounts = (yield accountStorage.list()).map(x => x.account).filter(x => x.trim().toLowerCase() !== "default");
                 for (const account of accounts) {
                     console.log(account);
                 }
@@ -130,7 +130,7 @@ let api;
         .description("Import a playlist to your TIDAL account. Valid services are: " + validServicesString)
         .action((service, url, commandObj) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const allAccounts = yield accountStorage.list();
+            const allAccounts = (yield accountStorage.list()).filter(x => x.account !== "default");
             let accountToUse;
             const entries = allAccounts.length;
             if (entries === 0) {

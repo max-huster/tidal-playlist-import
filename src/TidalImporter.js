@@ -59,7 +59,7 @@ class TidalImporter {
             if (progressCallback) {
                 progressCallback(ProgressState_1.ProgressState.Loading, `Searching for Playlist "${playlist.Title}"`, null);
             }
-            const matches = yield this.api.findPlaylistsByName(playlist.Title);
+            const matches = (yield this.api.findPlaylistsByName(playlist.Title)).map(x => x.uuid);
             let playlistId;
             if (matches.length === 0) {
                 if (progressCallback) {
@@ -82,7 +82,7 @@ class TidalImporter {
             if (progressCallback) {
                 progressCallback(ProgressState_1.ProgressState.Loading, `Adding ${playlist.Songs.length} Tracks to Playlist "${playlist.Title}"`, null);
             }
-            yield this.api.addTracksToPlaylist(playlist.Songs.map(x => x.Id), playlistId);
+            yield this.api.addTracksToPlaylist(playlist.Songs.map(x => x.Id), playlistId, "SKIP");
             if (progressCallback) {
                 progressCallback(ProgressState_1.ProgressState.Success, `Added ${playlist.Songs.length} Tracks to Playlist "${playlist.Title}"`, null);
             }

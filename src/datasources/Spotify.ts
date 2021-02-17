@@ -30,10 +30,10 @@ export class Spotify implements IDataSource {
 
     async fetch(url: string): Promise<Playlist> {
         const matches = /^https:\/\/open\.spotify\.com\/playlist\/([a-zA-Z0-9]{22})/g.exec(url);
-        const playlistId: string = matches[1];
-        if (!playlistId) {
-            throw new Error("Invalid URL! Only Playlists are supported by now!");
+        if(!matches || !matches[1]){
+            throw new Error("Invalid URL! Only Playlists are supported by now!")
         }
+        const playlistId: string = matches[1];
         const tracks = await this.GetTracks(playlistId);
         const info = await this.GetPlaylistInfo(playlistId);
 
@@ -41,7 +41,7 @@ export class Spotify implements IDataSource {
         playlist.Title = info.title;
         playlist.Description = info.description;
 
-        playlist.Songs = tracks.map(x => new Song(x.track.name, x.track.artists.map(artist => artist.name).join(", "), x.track.id))
+        playlist.Songs = tracks.filter(x=>x.track).map(x => new Song(x.track.name, x.track.artists.map(artist => artist?.name).join(", "), x.track.id))
         return playlist;
     }
 

@@ -59,7 +59,7 @@ export class TidalImporter implements IImporter {
         if (progressCallback) {
             progressCallback(ProgressState.Loading, `Searching for Playlist "${playlist.Title}"`, null);
         }
-        const matches = await this.api.findPlaylistsByName(playlist.Title);
+        const matches =( await this.api.findPlaylistsByName(playlist.Title)).map(x=>x.uuid);
         let playlistId: string;
         if (matches.length === 0) {
             if (progressCallback) {
@@ -83,7 +83,7 @@ export class TidalImporter implements IImporter {
         if (progressCallback) {
             progressCallback(ProgressState.Loading, `Adding ${playlist.Songs.length} Tracks to Playlist "${playlist.Title}"`, null);
         }
-        await this.api.addTracksToPlaylist(playlist.Songs.map(x => x.Id), playlistId);
+        await this.api.addTracksToPlaylist(playlist.Songs.map(x => x.Id), playlistId, "SKIP");
         if (progressCallback) {
             progressCallback(ProgressState.Success, `Added ${playlist.Songs.length} Tracks to Playlist "${playlist.Title}"`, null);
         }

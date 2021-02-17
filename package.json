@@ -23,7 +23,7 @@
     "lodash": "^4.17.20",
     "node-fetch": "^2.6.1",
     "ora": "^5.2.0",
-    "tidalapi-ts": "^2.0.2"
+    "tidalapi-ts": "^2.1.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
@@ -32,13 +32,13 @@
     "@types/mocha": "^8.2.0",
     "@types/node": "^14.14.16",
     "@types/node-fetch": "^2.5.7",
-    "@typescript-eslint/eslint-plugin": "^4.11.1",
-    "@typescript-eslint/parser": "^4.11.1",
-    "chai": "^4.2.0",
-    "eslint": "^7.16.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "chai": "^4.3.0",
+    "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "mocha": "^8.2.1",
+    "mocha": "^8.3.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }

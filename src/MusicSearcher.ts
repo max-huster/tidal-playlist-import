@@ -28,8 +28,15 @@ export class MusicSearcher {
         this._preferredSongTags = value;
     }
 
-    public static cleanUpTitle(input: string): string {
-        return input.replace(/[(\[].*/, "").trim();
+    public static cleanUpTitle(input: string, level: number): string {
+        if (level === 0) {
+            return input.replace(/[()\-,\[\]]/g, " ").trim();
+        }
+        if (level === 1) {
+            // cut off everything behind ( or [ or -
+            return input.replace(/\s[\-(\[].*/, "").trim();
+        }
+
     }
 
     public static cleanUpArtist(input: string): string {
@@ -47,6 +54,7 @@ export class MusicSearcher {
             Songs: result
         };
     }
+
     public async searchSong(input: Song, progressCallback: ProgressCallback = null): Promise<Song[]> {
         let searchTerm = null;
         let level = 0;
@@ -117,10 +125,16 @@ export class MusicSearcher {
                 return MusicSearcher.cleanUpArtist(input.Artist) + " " + input.Title;
             case 2:
                 // clean up title and keep exact artists
-                return input.Artist + " " + MusicSearcher.cleanUpTitle(input.Title);
+                return input.Artist + " " + MusicSearcher.cleanUpTitle(input.Title, 0);
             case 3:
+                // clean up title even more
+                return input.Artist + " " + MusicSearcher.cleanUpTitle(input.Title, 1);
+            case 4:
                 // clean both
-                return MusicSearcher.cleanUpTitle(input.Title) + " " + MusicSearcher.cleanUpArtist(input.Artist);
+                return MusicSearcher.cleanUpTitle(input.Title, 0) + " " + MusicSearcher.cleanUpArtist(input.Artist);
+            case 5:
+                // clean both and title more aggressively
+                return MusicSearcher.cleanUpTitle(input.Title, 1) + " " + MusicSearcher.cleanUpArtist(input.Artist);
         }
         return null;
     }

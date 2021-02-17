@@ -107,7 +107,7 @@ let api: TidalImporter;
                     console.error(chalk.red(`could not remove ${usernameToRemove}`));
                 }
             } else if (action === "list") {
-                const accounts = (await accountStorage.list()).map(x => x.account).filter(x => x !== "default");
+                const accounts = (await accountStorage.list()).map(x => x.account).filter(x => x.trim().toLowerCase() !== "default");
                 for (const account of accounts) {
                     console.log(account)
                 }
@@ -120,7 +120,7 @@ let api: TidalImporter;
         .action(async (service: string, url: string, commandObj) => {
             try {
 
-                const allAccounts = await accountStorage.list();
+                const allAccounts = (await accountStorage.list()).filter(x => x.account !== "default");
                 let accountToUse: { account: string, password: string };
                 const entries = allAccounts.length;
                 if (entries === 0) {
