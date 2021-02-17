@@ -1,6 +1,6 @@
 {
   "name": "tidal-playlist-import",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "Transports your Spotify Playlists and more to your Tidal Account",
   "main": "src/lib.js",
   "repository": "https://github.com/max-huster/tidal-playlist-import",
