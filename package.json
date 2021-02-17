@@ -7,12 +7,13 @@
   "author": "Max Huster <maxekinge@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node ./src/bin/tidal-playlist-import.js",
     "test": "yarn run mocha -r ts-node/register src/**/*.test.ts",
     "build": "yarn run tsc",
     "lint": "yarn run eslint src/"
   },
   "bin": {
-    "tidal-playlist-import": "./src/bin/tidal-playlist-import.js"
+    "tidal-playlist-import": "npm run start"
   },
   "dependencies": {
     "chalk": "^4.1.0",
